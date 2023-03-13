@@ -23,6 +23,10 @@ function updateNum(element, num_wins) {
     console.log("LAST STRING:", newString);
 }
 
+function updateNotif(play) {
+    
+}
+
 function playRound(playerSelection) {
     let computerSelection = rpsOptions[Math.floor(Math.random() * rpsOptions.length)];
 
