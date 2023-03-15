@@ -16,15 +16,21 @@ window.addEventListener("load", (event) => {
     roundsPlayed = document.getElementById("roundsPlayed");
 });
 
-// startGame()
-function updateNum(element, num_wins) {
-    let newString = element.innerText.slice(0, -1);
-    element.innerText = `${newString} ${num_wins}`;
-    console.log("LAST STRING:", newString);
+function updateNum(id, num) {
+    const element = document.querySelector(`#${id} span`);
+    element.textContent = num;
 }
 
 function updateNotif(play) {
-    
+    // todo
+}
+function startGame() {
+    // todo
+}
+function checkGameOver() {
+    if (playerWins === 3 || botWins === 3) {
+        // todo
+    }
 }
 
 function playRound(playerSelection) {
@@ -32,19 +38,24 @@ function playRound(playerSelection) {
 
     if (playerSelection === computerSelection) {
         tiePoints++;
-        updateNum(tieGames, tiePoints);
+        updateNum("tieGames", tiePoints);
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
         (playerSelection === "scissors" && computerSelection === "paper") ||
         (playerSelection === "paper" && computerSelection === "rock")
     ) {
         userPoints++;
-        updateNum(playerWins, userPoints);
+        updateNum("playerWins", userPoints);
     } else {
         pcPoints++;
-        updateNum(botWins, pcPoints);
+        updateNum("botWins", pcPoints);
     }
 }
 
-//if one player gets to 3 points, they win
-//if the game gets to 5 rounds, its a tie game, new button to start over
+//add game start function
+    //onpageload, check playing status. if false, add show start game button.
+    //start game button makes buttons clickable
+//add game end function
+    //make buttons unclickable
+    //show you lose/win message
+    //update playing status to false
